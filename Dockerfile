@@ -15,4 +15,3 @@ WORKDIR /microservice
 EXPOSE 1337
 
 RUN npm install
-CMD ["sails", "lift"]

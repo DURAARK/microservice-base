@@ -1,3 +1,3 @@
-# microservice-files
+# microservice-base
 
-Microservice for file management within the DURAARK platform.
+Base docker image and initial Sails.js setup for a DURAARK microservice.

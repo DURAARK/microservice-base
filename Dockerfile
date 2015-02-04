@@ -15,3 +15,5 @@ WORKDIR /microservice
 EXPOSE 1337
 
 RUN npm install
+
+ENTRYPOINT ["sails", "lift", "--prod"]

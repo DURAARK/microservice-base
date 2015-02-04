@@ -1,9 +1,9 @@
 {
-  "name": "files",
-  "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "name": "duraark-microservice-base",
+  "private": false,
+  "version": "0.1.0",
+  "description": "Base docker image and initial Sails.js setup for a DURAARK microservice.",
+  "keywords": ["duraark", "microservice", "archiving"],
   "dependencies": {
     "sails": "~0.10.2",
     "sails-disk": "~0.10.0",
@@ -31,15 +31,23 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hecher/files.git"
+    "url": "git://github.com/DURAARK/microservice-base.git"
   },
-  "author": "hecher",
-  "license": "",
+  "author": "Martin Hecher <martin.hecher@fraunhofer.at>",
+  "license": "MIT",
   "devDependencies": {
     "nodemon": "^1.2.1",
     "mocha": "^2.1.0",
     "grunt-mocha-test": "^0.12.6",
     "sinon": "^1.12.2",
-    "assert": "^1.3.0"
+    "assert": "^1.3.0",
+    "chai": "~1.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/DURAARK/microservice-base/issues"
+  },
+  "homepage": "https://github.com/DURAARK/microservice-base",
+  "directories": {
+    "test": "tests"
   }
 }

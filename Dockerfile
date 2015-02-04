@@ -10,7 +10,7 @@ RUN apt-get -y install nodejs -y
 RUN sudo npm install sails -g
 
 # Bundle app, install, expose and finally run it
-COPY ./src /microservice
+COPY ./ /microservice
 WORKDIR /microservice
 EXPOSE 1337
 

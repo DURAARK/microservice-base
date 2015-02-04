@@ -1,7 +1,7 @@
 #!/bin/sh
 
 NAMESPACE="local"
-CONTAINERNAME=$(echo ./service-info.txt)
+CONTAINERNAME=$(cat ./service-info.txt)
 IMAGENAME=$NAMESPACE/$CONTAINERNAME
 DEFAULTPORT=1337
 

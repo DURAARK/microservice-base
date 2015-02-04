@@ -15,6 +15,10 @@ It includes:
 
 After that you can add you own API logic via the SailsJS CLI (if you are not familiar with SailsJS have a look at the short [introduction video](http://sailsjs.org/)).
 
+## Local development
+
+For local development [PM2](https://github.com/Unitech/pm2) is used as process manager. To start developing locally start the script './scripts/serve-dev.sh'. It starts the SailsJS server on port 1337. The '--watching' option of PM2 is not enabled at the moment, due to an issue where the service is constantly restarted. You can simply exchange PM2 with other process managers, like nodemon, forever, etc. to get automatic restarts on code changes.
+
 ## Docker deployment
 
 The 'scripts' folder contains helper scripts for deploying your service via [Docker](http://www.docker.com). Two steps are necessary to configure the deployment:

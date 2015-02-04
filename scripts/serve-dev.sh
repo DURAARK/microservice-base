@@ -6,4 +6,4 @@ SERVICENAME=$(cat ./service-info.txt)
 INDEXFILE="app.js"
 FOLDER="../src"
 
-(cd $FOLDER; pm2 delete $SERVICENAME; pm2 start $INDEXFILE -x --name $SERVICENAME --watch)
+(cd $FOLDER; pm2 delete $SERVICENAME; pm2 start $INDEXFILE -x --name $SERVICENAME)

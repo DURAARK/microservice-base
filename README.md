@@ -1,8 +1,8 @@
-# DURAARK's microservice-base
+# microservice-base
+
+This is the documentation for 'microservice-base' source. Most likely you are reading this because you are using the [generator-duraark](https://github.com/duraark/generator-duraark) scaffolding tool. If not I recommend to check out the project before returning to this page. [generator-duraark](https://github.com/duraark/generator-duraark) allows you to scaffold microservices development and deploy environments via a CLI tool.
 
 The microservice-base gives you a sane starting point for developing [NodeJS](http://www.nodejs.org) based microservices.
-
-**NOTE**: This repository is used by the 'generator-duraark', a command-line interface for bootstrapping microservices and UIs, focused on the DURAARK platform. The CLI will be published in the next days, followed by an update of this text. The CLI provides you with an automated way for the manual steps described below. Stay tuned.
 
 The repository includes:
   * [SailsJS](http://sailsjs.org) for API-logic

@@ -1,10 +1,11 @@
 #!/bin/sh
 
+# TODO: use proper config file!
 SERVICEFILE=./service-info.txt
 
-NAMESPACE=$(sed '1q;d' $SERVICEFILE)
-IMAGENAME=$NAMESPACE/$(sed '2q;d' $SERVICEFILE)
-FOLDER=$(pwd)/$(sed '4q;d' $SERVICEFILE)
+NAMESPACE=$(sed '2q;d' $SERVICEFILE)
+IMAGENAME=$NAMESPACE/$(sed '4q;d' $SERVICEFILE)
+FOLDER=$(sed '8q;d' $SERVICEFILE)
 
 COMMAND=$1
 

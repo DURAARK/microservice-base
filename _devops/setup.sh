@@ -1,9 +1,11 @@
 #!/bin/sh
 
+# TODO: use proper config file!
 SERVICEFILE=./service-info.txt
 
-SRC=$(sed '5q;d' $SERVICEFILE)
+INDEXFILE=$(sed '10q;d' $SERVICEFILE)
+APPFOLDER=$(dirname "${INDEXFILE}")
 
-echo "Setting up project:"
-echo "  * installing dependencies: (cd $SRC && npm install && bower install)"
-(cd $SRC && npm install && bower install)
+echo "\nSetting up project:"
+echo "\n * installing dependencies: (cd $APPFOLDER && npm install && bower install)\n"
+(cd $APPFOLDER && npm install && bower install)

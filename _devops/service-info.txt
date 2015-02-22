@@ -1,5 +1,10 @@
+# namespace:
 local
+# imagename:
 microservice-base
+# dockerfile location:
 ../
-
-../
+# volume folder (can be empty, but has to be absolute if present)
+/tmp
+# indexfile:
+../app.js

@@ -1,9 +1,9 @@
 {
   "name": "duraark-microservice-base",
   "private": false,
-  "version": "0.2.4",
-  "description": "Base docker image and initial Sails.js setup for a DURAARK microservice.",
-  "keywords": ["duraark", "microservice", "archiving"],
+  "version": "0.2.5",
+  "description": "Base docker image and initial Sails.js setup a REST microservice.",
+  "keywords": ["duraark", "microservice", "SailsJS", "NodeJS", "API"],
   "dependencies": {
     "sails": "~0.10.2",
     "sails-disk": "~0.10.0",

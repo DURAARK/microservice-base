@@ -1,15 +1,17 @@
 #!/bin/sh
 
+# TODO: use proper config file!
 SERVICEFILE=./service-info.txt
 
-SRC=$(sed '5q;d' $SERVICEFILE)
+INDEXFILE=$(sed '10q;d' $SERVICEFILE)
+APPFOLDER=$(dirname "${INDEXFILE}")
 
-echo "Starting test suite:"
-echo "  * installing global dependencies: npm install -g sails\n\n"
+echo "\nStarting test suite:"
+echo "\n  * installing global dependencies: npm install -g sails (NOTE: Assumes you are root!\n"
 npm install -g sails
 
-echo "\n\n  * installing local dependencies: (cd $SRC && npm -d install)\n\n"
-(cd $SRC && npm -d install)
+echo "\n\n  * installing local dependencies: (cd $APPFOLDER && npm -d install)\n\n"
+(cd $APPFOLDER && npm -d install)
 
-echo "\n\n  * execute tests: (cd $SRC && npm test)"
-(cd $SRC && npm test)
+echo "\n\n  * execute tests: (cd $APPFOLDER && npm test)"
+(cd $APPFOLDER && npm test)

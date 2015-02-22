@@ -1,10 +1,13 @@
 #!/bin/sh
 
-NAMESPACE="local"
-CONTAINERNAME=$(cat ./service-info.txt)
-IMAGENAME=$NAMESPACE/$CONTAINERNAME
-DEFAULTPORT=1337
+# TODO: use proper config file!
+SERVICEFILE=./service-info.txt
 
+NAMESPACE=$(sed '2q;d' $SERVICEFILE)
+IMAGENAME=$NAMESPACE/$(sed '4q;d' $SERVICEFILE)
+CONTAINERNAME=$(sed '4q;d' $SERVICEFILE)
+
+DEFAULTPORT=1337
 HOSTPORT=$1
 
 if [ -z "$1" ]
@@ -16,6 +19,7 @@ fi
 
 echo "Removing "
 docker rm -f $CONTAINERNAME
+echo "\n(NOTE: If the above command yields an error don't worry, that's fine. We tried to remove the old container before starting, but there was none started.)"
 
 echo "\nStarted as "
-docker run -d -p $HOSTPORT:1337 --name $CONTAINERNAME --volumes-from microservice-files --link microservice-files:files --link microservice-ifcmetadata:ifcmetadata --link microservice-e57metadata:e57metadata $IMAGENAME
+docker run -d -p $HOSTPORT:1337 --name $CONTAINERNAME $IMAGENAME

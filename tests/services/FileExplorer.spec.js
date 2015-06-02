@@ -17,9 +17,20 @@ before(function(done) {
     });
 });
 
-// Global after hook
+//Global after hook
 after(function(done) {
-    app.lower(done);
+  var done_called = false;
+  app.lower(function() {
+    if (!done_called) {
+      done_called = true;
+      setTimeout(function() {
+          sails.log.debug("inside app.lower, callback not called yet. calling.");
+          done();
+      }, 1000);
+    } else {
+      sails.log.debug("inside app.lower, callback already called.");
+    }
+  });
 });
 
 describe('The FileExplorer service', function() {

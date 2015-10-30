@@ -1,18 +1,29 @@
-FROM ubuntu:14.04
+## FIXXME: check legal implications!
+## see http://askubuntu.com/questions/563680/ubuntu-for-docker-containers
+FROM dockerimages/ubuntu-core:14.04
 
 MAINTAINER Martin Hecher <martin.hecher@fraunhofer.at>
-
-RUN DEBIAN_FRONTEND=noninteractive
 
 ##
 ## Base dependencies
 ##
-RUN apt-get clean && apt-get update && apt-get install -qqy curl python
+RUN DEBIAN_FRONTEND=noninteractive
+RUN apt-get clean && apt-get update && apt-get install -qqy curl
 
 ##
-## Those are only necessary for the 'duraark-geometricenrichment' service. Maybe they are moved directly into the service later on:
+## 'duraark-geometricenrichment' dependencies:
 ##
-RUN apt-get update && apt-get install -qqy git software-properties-common build-essential cmake libboost-program-options1.55-dev libeigen3-dev apt-transport-https ca-certificates curl iptables && apt-get install --fix-missing
+RUN apt-get -y install git software-properties-common build-essential cmake vim libboost-program-options1.55-dev libeigen3-dev apt-transport-https ca-certificates curl iptables
+
+##
+## 'duraark-digitalpreservation' dependencies:
+##
+RUN apt-get -y install openjdk-7-jdk
+
+##
+## 'duraark-metadata' dependencies:
+##
+RUN apt-get install python software-properties-common -y && add-apt-repository ppa:fkrull/deadsnakes -y && apt-get update -y && apt-get install python3.3 python3-httplib2 python-httplib2 -y
 
 ##
 ## Docker & docker-compose
@@ -22,7 +33,7 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-com
 RUN chmod +x /usr/local/bin/docker-compose
 
 ##
-# NodeJS 0.12
+## NodeJS 0.12
 ##
 RUN curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 RUN apt-get install -y nodejs

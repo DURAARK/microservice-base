@@ -4,9 +4,15 @@ MAINTAINER Martin Hecher <martin.hecher@fraunhofer.at>
 
 RUN DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get clean && apt-get update && apt-get install -qqy curl
+##
+## Base dependencies
+##
+RUN apt-get clean && apt-get update && apt-get install -qqy curl python
+
+##
 ## Those are only necessary for the 'duraark-geometricenrichment' service. Maybe they are moved directly into the service later on:
-RUN apt-get -y install git software-properties-common build-essential cmake vim libboost-program-options1.55-dev libeigen3-dev apt-transport-https ca-certificates curl iptables
+##
+RUN apt-get update && apt-get install -qqy git software-properties-common build-essential cmake libboost-program-options1.55-dev libeigen3-dev apt-transport-https ca-certificates curl iptables && apt-get install --fix-missing
 
 ##
 ## Docker & docker-compose

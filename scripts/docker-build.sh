@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t duraark/mircoservice-base:latest .
+docker build -t duraark/microservice-base:latest .

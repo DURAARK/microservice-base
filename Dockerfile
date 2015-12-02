@@ -28,8 +28,8 @@ RUN apt-get install python software-properties-common -y && add-apt-repository p
 ##
 ## Docker & docker-compose
 ##
-RUN curl -sSL https://get.docker.com/ubuntu/ | sh
-RUN curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+RUN curl -sSL https://get.docker.com | sh
+RUN curl -L https://github.com/docker/compose/releases/download/1.5.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
 ##
@@ -37,4 +37,10 @@ RUN chmod +x /usr/local/bin/docker-compose
 ##
 RUN curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 RUN apt-get install -y nodejs
-RUN npm install -g sails gulp-cli nodemon bower grunt-cli
+RUN npm install -g sails gulp-cli ember-cli nodemon bower grunt-cli
+
+##
+## // FIXXME: integrate in block above, this is just added last for a faster rebuild ...
+## 'duraark-geometricenrichment' dependencies II:
+##
+RUN apt-get -y install imagemagick
